@@ -19,7 +19,7 @@ $(document).ready(function(){
     if ($("h1").hasClass("stupid-font"))
     {
         alert("has stupid font.");
-    }
+    };
 
     //Manipulate the text with jquery
     $("h1").text("CUMMA");
@@ -38,7 +38,7 @@ $(document).ready(function(){
     //listening for events in an array of values
     $("button").click(function(){
         $("h1").css("color", "red");
-    })
+    });
 
     //Event listener Challenge. pressing a key changes the H1 inner html to the key that was pressed.
 
@@ -50,7 +50,7 @@ $(document).ready(function(){
         console.log(key_pressed);//just to check that the variable is storing the intended value
         $("h1").text(key_pressed);
 
-    })
+    });
 
     //another more general way to use Jquery even listener. (this doesn't work atm.)
     /*  $("h1").on("hover", function(){
@@ -58,7 +58,31 @@ $(document).ready(function(){
     }) */  
     $("h1").hover(function(){
         $("h1").css("color", "purple");
-    })
+    });
 
+
+    //Adding new elements
+    $("h1").before("<button class='chumba'>New</button>"); //adds element before the selected element
+    $("h1").after("<button class='kumba'>Neew</button>"); //adds element after the selected element
+    //note that there is also .prepend and .append which is used "within" the selected element
+
+    //Removing elements using the .remove() e.g $("button").remove();
+
+    //Adding animations with jquery
+
+    $(".chumba").click(function()
+    {
+        $("img").toggle(); //the button with the class = "chumba" is clicked. the img is hidden or shown
+    });
+
+    // .fadeout() and fadein() and .fadeToggle() are the same as .hide() or show() but applies a gradual fade obviously.
+
+    // .slideup(), .slidedown() and slideToggle() are good for animating accordion html.
     
-})
+    $(".kumba").click(function(){
+        $(".kumba").animate({opacity : 0.5}).slideup(); //this method can only work with styles that take numerical values.This demonstration also shows chaining.
+    });
+
+
+
+});
